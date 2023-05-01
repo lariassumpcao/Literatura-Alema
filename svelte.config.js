@@ -17,7 +17,7 @@ const config = {
 		adapter: adapter({ pages: 'output/', assets: 'output/', fallback: 'index.html', }),
 		appDir: 'app',
 		paths: {
-			base: '/banco-de-dados-alemao'
+			base: '/Literatura-Alema'
 		}
 	},
 };
