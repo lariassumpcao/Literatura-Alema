@@ -30,7 +30,7 @@ jobs:
       # Generate all necessary files for the app
       - name: run npm necessary commands
         run: |
-          npm ci
+          npm install
           npx tailwindcss -i ./src/input.css -o ./src/app.css
           npm run build
       
