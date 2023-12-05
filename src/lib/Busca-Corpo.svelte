@@ -25,7 +25,7 @@
                     <TableBodyCell tdClass={table_body_cell_classes}>{result.date == '0' ? '-' : result.date}</TableBodyCell>
                     <TableBodyCell tdClass={table_body_cell_classes}>{result.language}</TableBodyCell>
                     <TableBodyCell tdClass={table_body_cell_classes}>{result.edition_place_city}</TableBodyCell>
-                    <TableBodyCell tdClass={table_body_cell_classes}>{result.observation + (result.type === 'Tradução' ? (' / Tradutor(a): ' + result.author) : '')}</TableBodyCell>
+                    <TableBodyCell tdClass={table_body_cell_classes}>{result.observation}{#if result.type === 'Tradução'}<br>Tradutor(a): {result.author}{/if}</TableBodyCell>
                 </TableBodyRow>
                 {/each}
             {:else}
