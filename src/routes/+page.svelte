@@ -4,7 +4,7 @@
 </script>
 
 <div class='w-screen h-screen bg-white'>
-    <div class='max-w-[1366px] h-full mx-auto p-4'>
+    <div class='max-w-screen-xl h-full mx-auto p-4'>
         <Resumo/>
         <Busca/>
     </div>

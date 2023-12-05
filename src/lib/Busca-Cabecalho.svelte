@@ -64,7 +64,7 @@
         if (show_library) origin = origin.concat('Bibliotecas')
         if (show_bookseller) origin = origin.concat('Livreiros')
         if (show_journals) origin = origin.concat('Periódicos')
-        
+
         do_search(true);
     }
     
@@ -72,12 +72,15 @@
         if (e.target.value.length == 4) {
             do_search(false);
         }
+        else if (e.key == 'Backspace') {
+            do_search(true);
+        }
     }
 
     const checkbox_not_selected = 'w-full text-center select-none font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 dark:border-gray-600 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 hover:text-blue-700 focus:text-blue-700 dark:focus:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:bg-transparent dark:border-gray-800 dark:hover:border-gray-700 rounded-lg';
     const checkbox_selected     = 'w-full text-center select-none font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-2.5 text-sm text-white bg-gray-800 border hover:bg-gray-900 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 rounded-lg';
 
-    const form_input_width = 96;
+    const form_input_width = 80;
 </script>
 <svelte:window on:load={on_change}/>
 
