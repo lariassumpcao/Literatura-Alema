@@ -64,7 +64,7 @@
         if (show_library) origin = origin.concat('Bibliotecas')
         if (show_bookseller) origin = origin.concat('Livreiros')
         if (show_journals) origin = origin.concat('Periódicos')
-
+        
         do_search(true);
     }
     

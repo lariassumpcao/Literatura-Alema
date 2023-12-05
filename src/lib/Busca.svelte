@@ -8,7 +8,6 @@
     let db_date_max = 0;
 
     let results = {};
-    let active_search = false;
 
     let last_search_criteria = {};
 
@@ -30,7 +29,6 @@
     const do_search = (e) => {
         // search criteria
         last_search_criteria = e.detail;
-        active_search = true;
 
         process_search(last_search_criteria);
     }
@@ -57,7 +55,7 @@
                     filter_date_max = criteria.date_max ? parseInt(item.date) <= criteria.date_max : true;
                 }
                 
-                let filter_origin = criteria.origin.length > 0 ? criteria.origin.includes(item.origin) : true;
+                let filter_origin = criteria.origin.includes(item.origin);
 
                 return (filter_author || filter_translator) && filter_title && (filter_translations || filter_originals) && filter_date_min && filter_date_max && filter_origin && filter_observation
             }
@@ -76,7 +74,6 @@
             'criteria': false,
             'items': json_data
         };
-        active_search = false;
     };
 
 
