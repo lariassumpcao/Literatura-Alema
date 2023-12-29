@@ -9,12 +9,12 @@
 <div class='block h-full max-w-92'>
     <Table divClass='relative overflow-x-auto h-full' class='table-fixed h-full'>
         <TableHead defaultRow={false} class='sticky top-0'>
-            <TableHeadCell padding='px-4 py-3' class='text-center w-3/12'>Título</TableHeadCell>
-            <TableHeadCell padding='px-4 py-3' class='text-center w-3/12'>Autor(a)</TableHeadCell>
-            <TableHeadCell padding='px-4 py-3' class='text-center w-1/12'>Data da Publicação</TableHeadCell>
-            <TableHeadCell padding='px-4 py-3' class='text-center w-1/12'>Língua</TableHeadCell>
-            <TableHeadCell padding='px-4 py-3' class='text-center w-2/12'>Local de Edição</TableHeadCell>
-            <TableHeadCell padding='px-4 py-3' class='text-center w-2/12'>Observações</TableHeadCell>
+            <TableHeadCell padding='px-4 py-3' class='text-center whitespace-pre-line w-3/12'>Título</TableHeadCell>
+            <TableHeadCell padding='px-4 py-3' class='text-center whitespace-pre-line w-3/12'>Autor(a)</TableHeadCell>
+            <TableHeadCell padding='px-4 py-3' class='text-center whitespace-pre-line w-1/12'>Data da Publicação</TableHeadCell>
+            <TableHeadCell padding='px-4 py-3' class='text-center whitespace-pre-line w-1/12'>Língua</TableHeadCell>
+            <TableHeadCell padding='px-4 py-3' class='text-center whitespace-pre-line w-2/12'>Local de Edição</TableHeadCell>
+            <TableHeadCell padding='px-4 py-3' class='text-center whitespace-pre-line w-2/12'>Observações</TableHeadCell>
         </TableHead>
         <TableBody>
             {#if !(Object.keys(results).length === 0)}
@@ -30,7 +30,7 @@
                 {/each}
             {:else}
                 <TableBodyRow>
-                    <TableBodyCell colspan=6 class='text-center align-middle h-full text-lg'>Digite o nome do(a) autor(a) ou obra, por exemplo.</TableBodyCell>
+                    <TableBodyCell colspan=6 class='text-center align-middle h-full text-lg'>...</TableBodyCell>
                 </TableBodyRow>
             {/if}
         </TableBody>
