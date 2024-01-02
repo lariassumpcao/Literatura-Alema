@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Input, Label, Toggle, Checkbox, Button  } from 'flowbite-svelte';
-    import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher, onMount } from 'svelte';
 
     const dispatch = createEventDispatcher();
 
@@ -59,13 +59,13 @@
         do_search(false);
     }
 
-    const on_change = () => {
+    const on_change = (e, bypass=true) => {
         origin = [];
         if (show_library) origin = origin.concat('Bibliotecas')
         if (show_bookseller) origin = origin.concat('Livreiros')
         if (show_journals) origin = origin.concat('Periódicos')
 
-        do_search(true);
+        do_search(bypass);
     }
     
     const on_keyup_date = (e) => {
@@ -80,15 +80,19 @@
     const checkbox_not_selected = 'w-full text-center select-none font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-2.5 text-sm text-gray-900 bg-white border border-gray-200 dark:border-gray-600 hover:bg-gray-100 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 hover:text-blue-700 focus:text-blue-700 dark:focus:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:bg-transparent dark:border-gray-800 dark:hover:border-gray-700 rounded-lg';
     const checkbox_selected     = 'w-full text-center select-none font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-5 py-2.5 text-sm text-white bg-gray-800 border hover:bg-gray-900 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 rounded-lg';
 
-    const form_input_width = 80;
+    const form_input_width = "80";
+    // {form_input_width}
+
+    onMount(() => {
+        on_change(true);
+    });
 </script>
-<svelte:window on:load={on_change}/>
 
 <div class="mb-6">
     <div class="flex justify-between my-4">
         <div class="w-{form_input_width}">
             <Label for="title" defaultClass="text-sm font-bold block">Título</Label>
-            <Input on:keyup={on_keyup} bind:value={title} type="text" placeholder="Título ou parte do título" />
+            <Input on:keyup={on_keyup} bind:value={title} type="text" id="title" placeholder="Título ou parte do título" />
             <div class="flex justify-between gap-3 my-2">
                 <Checkbox bind:checked={translations} class='w-1/2' custom>
                     <div class="w-full cursor-pointer">
@@ -108,19 +112,19 @@
         </div>
         <div class="w-{form_input_width}">
             <Label for="author" defaultClass="text-sm font-bold block">Autor(a)</Label>
-            <Input on:keyup={on_keyup} bind:value={author} type="text" placeholder="Nome ou parte do nome" />
+            <Input on:keyup={on_keyup} bind:value={author} id="author" type="text" placeholder="Nome ou parte do nome" />
         </div>
         <div class="w-{form_input_width}">
-            <Label for="date" defaultClass="text-sm font-bold block">Data</Label>
-            <div class="flex gap-3">
-                <Input on:keyup={on_keyup_date} bind:value={date_min} type="text" placeholder="De ({db_date_min})" />
-                <Input on:keyup={on_keyup_date} bind:value={date_max} type="text" placeholder="Até ({db_date_max})" />
+            <Label for="date_min" defaultClass="text-sm font-bold block">Data</Label>
+            <div class="flex gap-3" >
+                <Input on:keyup={on_keyup_date} bind:value={date_min} id="date_min" type="text" placeholder="De ({db_date_min})" />
+                <Input on:keyup={on_keyup_date} bind:value={date_max} id="date_max" type="text" placeholder="Até ({db_date_max})" />
             </div>
         </div>
         <div class="w-{form_input_width}">
             <Label for="observation" defaultClass="text-sm font-bold block">Observações</Label>
             <div class="flex gap-3">
-                <Input on:keyup={on_keyup} bind:value={observation} type="text" placeholder="Observação inteira ou parcial" />
+                <Input on:keyup={on_keyup} bind:value={observation} id="observation" type="text" placeholder="Observação inteira ou parcial" />
             </div>
         </div>
     </div>

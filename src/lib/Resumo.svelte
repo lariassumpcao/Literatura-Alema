@@ -9,7 +9,7 @@
             Este repositório contém a listagem de alguns desses livros, recuperados a partir de catálogos de bibliotecas, catálogos de livreiros e anúncios em periódicos. 
 
             Ele é resultado de um projeto de pós-doutorado desenvolvido dentro do Programa de Pós-graduação em Língua e Literatura Alemã do Departamento de Letras Modernas da FFLCH – USP e 
-            conta com financiamento da Fapesp (2023/07967-6).
+            conta com financiamento da <a class="underline underline-offset-2" href="https://bv.fapesp.br/pt/bolsas/212298/a-circulacao-de-obras-ficcionais-de-expressao-alema-no-rio-de-janeiro-do-seculo-xix/" target="_blank">Fapesp (2023/07967-6)</a>.
         </p>
     </div>
 </div>
