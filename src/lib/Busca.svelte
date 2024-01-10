@@ -42,7 +42,8 @@
                 let filter_translator = criteria.author !== '' ? item.author.toLowerCase().indexOf(criteria.author.toLowerCase()) !== -1 : true;
                 
                 let filter_title = criteria.title !== '' ? item.title.toLowerCase().indexOf(criteria.title.toLowerCase()) !== -1 : true;
-                
+                let filter_title_reg = criteria.title !== '' ? item.title_registry.toLowerCase().indexOf(criteria.title.toLowerCase()) !== -1 : true;
+
                 let filter_translations = (item.type.toLowerCase() == 'tradução') && criteria.translations;
                 let filter_originals = (item.type.toLowerCase() == 'publicação') && criteria.originals;
 
@@ -57,7 +58,7 @@
                 
                 let filter_origin = criteria.origin.includes(item.origin);
 
-                return (filter_author || filter_translator) && filter_title && (filter_translations || filter_originals) && filter_date_min && filter_date_max && filter_origin && filter_observation
+                return (filter_author || filter_translator) && (filter_title || filter_title_reg) && (filter_translations || filter_originals) && filter_date_min && filter_date_max && filter_origin && filter_observation
             }
         );
         
