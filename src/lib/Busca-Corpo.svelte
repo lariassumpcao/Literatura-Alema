@@ -20,7 +20,7 @@
             {#if !(Object.keys(results).length === 0)}
                 {#each results.items as result}
                 <TableBodyRow>
-                    <TableBodyCell tdClass={table_body_cell_classes}>{result.title}</TableBodyCell>
+                    <TableBodyCell tdClass={table_body_cell_classes}>{result.title}{#if result.type === 'Tradução'}<br><span class="text-xs italic">Título original: {result.title_registry}</span>{/if}</TableBodyCell>
                     <TableBodyCell tdClass={table_body_cell_classes}>{result.author_registry}</TableBodyCell>
                     <TableBodyCell tdClass={table_body_cell_classes}>{result.date == '0' ? '-' : result.date}</TableBodyCell>
                     <TableBodyCell tdClass={table_body_cell_classes}>{result.language}</TableBodyCell>
